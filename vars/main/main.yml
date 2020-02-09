@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+nginx_repos_create: "{{ _nginx_repos_create['all']
+  | union ( _nginx_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+nginx_repos_download: "{{ _nginx_repos_download['all']
+  | union ( _nginx_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+nginx_templates_copy: "{{ _nginx_templates_copy['all']
+  | union ( _nginx_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+nginx_services_enable: "{{ _nginx_services_enable['all']
+  | union ( _nginx_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+nginx_selinux_enable: "{{ _nginx_selinux_enable['all']
+  | union ( _nginx_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+nginx_packages_remove: "{{ _nginx_packages_remove['all']
+  | union ( _nginx_packages_remove[my_os]
+  | default([]) ) }}"
+nginx_packages_repos: "{{ _nginx_packages_repos['all']
+  | union ( _nginx_packages_repos[my_os]
+  | default([]) ) }}"
+nginx_packages_prereq: "{{ _nginx_packages_prereq['all']
+  | union ( _nginx_packages_prereq[my_os]
+  | default([]) ) }}"
+nginx_packages_install: "{{ _nginx_packages_install['all']
+  | union ( _nginx_packages_install[my_os]
+  | default([]) ) }}"

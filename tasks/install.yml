@@ -1,0 +1,27 @@
+---
+# Install nginx packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ nginx_packages_remove }}"
+    state: absent
+  become: true
+  when: nginx_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ nginx_packages_repos }}"
+    state: "{{ nginx_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ nginx_packages_prereq }}"
+    state: "{{ nginx_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ nginx_packages_install }}"
+    state: "{{ nginx_packages_state }}"
+  become: true
