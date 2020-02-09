@@ -8,10 +8,10 @@ nginx: Nginx
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.nginx](https://galaxy.ansible.com/devops-toolbox.nginx)
+[https://galaxy.ansible.com/devopstoolbox.nginx](https://galaxy.ansible.com/devopstoolbox.nginx)
 
 ```bash
-ansible-galaxy install devops-toolbox.nginx
+ansible-galaxy install devopstoolbox.nginx
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: nginx is configured
       import_role:
-        name: devops-toolbox.nginx
+        name: devopstoolbox.nginx
       vars:
         nginx_packages_state: present
         nginx_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
